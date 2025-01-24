@@ -1,0 +1,114 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>User</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">User</li>
+        <li class="breadcrumb-item active">All users</li>
+      </ol>
+    </nav>
+  </div>
+  <!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Users</h5>
+
+            <!-- <button class="btn btn-danger float-right" (click)="createUser()">
+              Add User
+            </button> -->
+
+            <!-- <form
+              (ngSubmit)="
+                selectedUser
+                  ? updateUser(selectedUser)
+                  : createUser(selectedUser)
+              "
+            >
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  [(ngModel)]="selectedUser.name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  [(ngModel)]="selectedUser.email"
+                  name="email"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                {{ selectedUser ? "Update" : "Create" }}
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="clearSelection()"
+              >
+                Cancel
+              </button>
+            </form> -->
+
+            <!-- Table with stripped rows -->
+            <table class="table datatable">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th data-type="date" data-format="YYYY/DD/MM">Created At</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.createdAt }}</td>
+                  <td>
+                    <button
+                      mat-button
+                      class="btn btn-success ml-5"
+                      (click)="viewUser(user.id)"
+                    >
+                      View
+                    </button>
+                    <button
+                      class="btn btn-warning ml-5"
+                      (click)="selectUser(user)"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      class="btn btn-danger"
+                      (click)="deleteUser(user.id)"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- End #main -->

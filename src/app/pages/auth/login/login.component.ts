@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true, // Add standalone: true
   imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   credentials = { email: '', password: '' };
@@ -20,8 +20,7 @@ export class LoginComponent {
   login() {
     this.authService.login(this.credentials).subscribe(
       () => this.router.navigate(['/admin/dashboard']),
-      (error) => this.errorMessage = 'Invalid credentials'
+      (error) => (this.errorMessage = 'Invalid credentials')
     );
   }
-
 }
