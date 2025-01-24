@@ -1,0 +1,8 @@
+<!-- modal.component.html -->
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<mat-dialog-content>
+  <p [innerHTML]="data.content"></p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+</mat-dialog-actions>

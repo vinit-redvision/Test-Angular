@@ -6,6 +6,7 @@ import { SignupComponent } from './pages/auth/signup/signup.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { DashboardLayoutComponent } from './layout/dashboard-layout/dashboard-layout.component';
+import { UserComponent } from './pages/user/user.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,7 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UserComponent },
       // Add more child routes here
     ],
   },
