@@ -3,13 +3,15 @@ import { UserService, User } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../../common/modal/modal.component';
+import { FormComponent } from '../../common/form/form.component';
+import { FormModalComponent } from '../../common/form-modal/form-modal.component';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormComponent],
 })
 export class UserComponent implements AfterViewInit {
   users: User[] = [];
@@ -60,6 +62,26 @@ export class UserComponent implements AfterViewInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
     });
+  }
+
+  formOpenModal(modalTitle: string): void {
+    const createUserDailogRef = this.dialog.open(FormModalComponent, {
+      data: {
+        title: modalTitle,
+      },
+    });
+
+    createUserDailogRef.afterClosed().subscribe((result) => {
+      console.log('Create user response', result);
+      if (result) {
+        this.createUser(result);
+      }
+    });
+  }
+
+  addUserModal(): void {
+    let modalTile = 'Add User';
+    this.formOpenModal(modalTile);
   }
 
   async viewUser(id: number): Promise<void> {
